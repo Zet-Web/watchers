@@ -1,6 +1,6 @@
 {
   "name": "watchers",
-  "version": "0.2.24",
+  "version": "0.3.26",
   "manifest_version": 2,
   "description": "Whatever you want it to be",
   "background": {
