@@ -3,7 +3,7 @@
 
 var backgroundjsObj = new function backgroundjs(){
 
-    console.log("webRefresh Background 0.2.24 | " + new Date());
+    console.log("watchers Background 0.2.24 | " + new Date());
 
     var tabs2refresh = [];
     var LastfireDate = new Date();

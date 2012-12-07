@@ -41,7 +41,7 @@
 		//Hi______________________________
 		if (request.action =="Hi"){
 			if (tiroHi) return;
-			console.log("webRefresh tabScript 0.2.24, jquery version: " + $().jquery);
+			console.log("watchers tabScript 0.2.24, jquery version: " + $().jquery);
 			console.log($('.test').text());
 			tiroHi = true;
 		}else{
