@@ -23,7 +23,7 @@ body{
 	font-family: 'font_watchersl';
 	font-size: 12px;
 	width: 400px;
-	height:40px;
+	/*height:70px;*/
 }
 .boxContent{
 	background-color: #393d3e;
@@ -35,6 +35,10 @@ body{
 	height:40px;
 	text-align: center;
 	vertical-align: middle;
+	/**/
+	background-image:url(loading.gif);
+	background-repeat:no-repeat;
+	background-position:center center;
 }
 .infoBlock{
 	display: none;
