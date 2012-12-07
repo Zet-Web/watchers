@@ -40,7 +40,10 @@ function conecto(tab){
 	asociatedPort = backgroundjs.getTabPort(tab);
 	serverWatchers = backgroundjs.serverWatchers();
 	connected = backgroundjs.checkTabisConnected(tab);
-	if (!backgroundjs.isValidTag(tab)) self.close();
+	if (!backgroundjs.isValidTag(tab)) {
+		alert ('This is not a valid tab');
+		self.close();
+	};
 	onPopUpOpen();
 }
 
