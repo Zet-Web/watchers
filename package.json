@@ -1,0 +1,27 @@
+{
+  "name": "watchers",
+  "version": "0.2.24",
+  "description": "Watch file changes and refresh site in browser",
+  "main": "lib/main.js",
+  "scripts": {
+    "test": "watchers c:/project/css/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/karacas/watchers"
+  },
+  "bin": {
+    "watchers": "./bin/watchers.js"
+  },
+  "keywords": ["watch", "refresh"],
+  "dependencies": {
+    "optimist": "0.3.5",
+    "faye": "0.8.6"
+  },
+  "author": "Alejandro Emparan",
+  "maintainers": [{
+    "name": "Alejandro Emparan",
+    "web": "https://twitter.com/krc_ale"
+  }],
+  "license": "MIT"
+}

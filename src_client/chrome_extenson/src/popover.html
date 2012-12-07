@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="jquery.easing.min.js"></script>
+	<script type="text/javascript" src="popover.js"></script>
+	<link rel="stylesheet" href="popover.css">
+	<link rel="stylesheet" href="popoverDev.css">
+</head>
+<body>
+	<div class="boxContent">
+		<div class='loader'> [loading] </div>
+		<!-- **************************** -->
+		<div id='asociated' class='infoBlock'>
+			<!-- Listado de Watchers____________________ -->
+			<div class='ActiveServers box'>
+				<ttl>Watchers ready</ttl>
+				<div class='WatcherForm boxIn hide'>
+					<ul></ul>
+				</div>
+			</div>
+			<!-- Crerr un Watchers____________________ -->
+			<div class='NewWatcher box'>
+				<ttl>Create new watcher</ttl>
+				<div class='WatcherForm boxIn hide'>
+					<div style="">
+						<label>Path to watch:</label>
+						<input class='regularInput inputPath' type="text" id="file_input">
+						<br>
+						<label>Wather name:</label>
+						<input class='regularInput inputName' type="text" >
+						<label>Ignore:</label>
+						<input class='regularInput inputIgnore' type="text" >
+						<label>Only:</label>
+						<input class='regularInput inputOnly' type="text" >
+						<br><br>
+						<button class="regularButton createWatcherForm">Create</button>
+					</div>
+				</div>
+			</div>
+			<!-- Recent Watchers____________________ -->
+			<div class="preLis box">
+				<ttl>Recent Watchers</ttl>
+				<div class="WatcherForm boxIn hide" style="display: block;">
+					<ul>
+						<li>
+							<a class="" href="#" data-miname="wserver_port_35730" data-miport="35730">wserver_port_35730 </a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- **************************** -->
+		<div id='no_asociated'  class='infoBlock'>
+			<div class="preLisNoHover box active">
+				<ttl>Connected to watcher:</ttl>
+				<div class='WatcherForm boxIn'>
+					<ul>
+						<li>
+							<a ><div class="AsociationInfo"><span class='miName'></span></div></a>
+						</li>
+					</ul>
+					<br><br>
+					<button id="no_send" class="regularButton">Disconnect</button>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>
