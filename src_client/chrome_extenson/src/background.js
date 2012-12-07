@@ -44,8 +44,11 @@ var backgroundjsObj = new function backgroundjs(){
 
     //ADDTABS__________________________________________
     function _updatetabs2refresh(tab, tabport){
+        if (!isValidTag(tab)){
+            alert ('This is an invalid tab');
+            return false
+        };
         if (megaServer === null) return;
-        if (!isValidTag(tab))return false;
         if (tabport === null) {
             return false;
         }else{
