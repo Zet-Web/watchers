@@ -106,7 +106,8 @@ var backgroundjsObj = new function backgroundjs(){
                 if (!connectedInit){
                     connected = true;
                     connectedInit = true;
-                    console.log('\n[MegaServerConnected] ___________________');
+                    console.log(message.test);
+                    console.log('\n[MegaServerConnected] ___________________ + server_version: ' + message.server_version);
                     megaServer.publish('/'+options.channel+"toServer",  {action:'getWatchers'});
                 }
             }else{
@@ -254,6 +255,7 @@ var backgroundjsObj = new function backgroundjs(){
         counter++;
     }
     function Conected(data){
+        console.log(data);
         console.log('\n[Conected OK]: last change:' + data.ver + ' - ' + data.name + ' - ' + data.port);
         checkIcon();
         SendHitoTabs(null, data.port);
