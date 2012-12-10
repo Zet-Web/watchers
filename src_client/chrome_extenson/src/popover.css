@@ -1,259 +1,395 @@
+
+/* line 1 : C:\Users\karacas\AppData\Roaming\npm\node_modules\stylus\lib\functions\index.styl */
+
+/* line 13 : C:\Users\karacas\AppData\Roaming\npm\node_modules\nib\lib\nib\index.styl */
+
+/* line 2 : C:\Users\karacas\AppData\Roaming\npm\node_modules\nib\lib\nib\border.styl */
+
+/* line 2 : C:\Users\karacas\AppData\Roaming\npm\node_modules\nib\lib\nib\clearfix.styl */
+
+/* line 2 : C:\Users\karacas\AppData\Roaming\npm\node_modules\nib\lib\nib\color-image.styl */
+
+/* line 6 : C:\Users\karacas\AppData\Roaming\npm\node_modules\nib\lib\nib\flex.styl */
+
+/* line 154 : C:\Users\karacas\AppData\Roaming\npm\node_modules\nib\lib\nib\gradients.styl */
+
+/* line 154 : C:\Users\karacas\AppData\Roaming\npm\node_modules\nib\lib\nib\config.styl */
+
+/* line 2 : C:\Users\karacas\AppData\Roaming\npm\node_modules\nib\lib\nib\iconic.styl */
+
+/* line 2 : C:\Users\karacas\AppData\Roaming\npm\node_modules\nib\lib\nib\image.styl */
+
+/* line 15 : C:\Users\karacas\AppData\Roaming\npm\node_modules\nib\lib\nib\overflow.styl */
+
+/* line 3 : C:\Users\karacas\AppData\Roaming\npm\node_modules\nib\lib\nib\positions.styl */
+
+/* line 3 : C:\Users\karacas\AppData\Roaming\npm\node_modules\nib\lib\nib\reset.styl */
+
+/* line 5 : C:\Users\karacas\AppData\Roaming\npm\node_modules\nib\lib\nib\text\index.styl */
+
+/* line 2 : C:\Users\karacas\AppData\Roaming\npm\node_modules\nib\lib\nib\text\aliases.styl */
+
+/* line 2 : C:\Users\karacas\AppData\Roaming\npm\node_modules\nib\lib\nib\text\ellipsis.styl */
+
+/* line 11 : C:\Users\karacas\AppData\Roaming\npm\node_modules\nib\lib\nib\text\hide-text.styl */
+
+/* line 9 : C:\Users\karacas\AppData\Roaming\npm\node_modules\nib\lib\nib\text\replace-text.styl */
+
+/* line 551 : C:\Users\karacas\AppData\Roaming\npm\node_modules\nib\lib\nib\vendor.styl */
+
+/* line 551 : C:\Users\karacas\AppData\Roaming\npm\node_modules\nib\lib\nib\config.styl */
+
+/* line 3 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
 @font-face {
-	font-family: 'font_watchers1';
-	src: url('fonts/Oxygen-Regular.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
+  font-family: 'font_watchers1';
+  src: url("fonts/Oxygen-Regular.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
+
+/* line 9 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
 @font-face {
-	font-family: 'font_watchersl';
-	src: url('fonts/Oxygen-Light.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-a{
-	text-decoration: none;
-	color: #c6c6c6;
-}
-body, html{
-	margin: 0;
-	padding: 0;
-	color: #fff;
-}
-body{
-	font-family: 'font_watchersl';
-	font-size: 12px;
-	width: 400px;
-	height: 56px;
-}
-.boxContent{
-	background-color: #393d3e;
-	border-radius: 4px;
-	margin: 6px;
-	padding:6px;
-}
-.loader{
-	height:40px;
-	text-align: center;
-	vertical-align: middle;
-	/**/
-	background-image:url(loading.gif);
-	background-repeat:no-repeat;
-	background-position:center center;
-}
-.infoBlock{
-	display: none;
-}
-.hide{
-	display: none;
-}
-/***********************************************/
-.box{
-	padding: 0px;
-	padding-top: 4px;
-	margin: 0px;
-	border-radius: 4px;
-	color:#fff;
-	font-size: 14px;
-	margin-bottom: 8px;
-}
-.box:last-child{
-	margin-bottom: 2px;
-}
-.box.active{
-	padding: 0px;
-	box-shadow: inset rgba(0, 0, 0, 0.80) 0px 1px 5px, rgba(255, 255, 255, 0.20) 0px 1px 0px ;
-	font-weight: 400;
-	background-color: #313235;
-	color:#fff;
-}
-ttl{
-	font-family: 'font_watchers1';
-	margin: 0;
-	padding: 10px;
-	width: 100%;
-	display: block;
-	box-sizing: border-box;
-	cursor: pointer;
-	color:#989898;
-	font-size: 14px;
-	line-height: 14px;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.90);
-	border-radius: 3px;
-	text-rendering:  optimizeLegibility ;
-	box-shadow: rgba(0, 0, 0, 0.60) 0px 1px 1px, inset rgba(255, 255, 255, 0.15) 0px 1px 0px ;
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0.0, #393b3e),
-		color-stop(1, #4c4f54)
-		);
-}
-ttl:hover{
-	color:#d6d6d6;
-	color: #fff;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.70);
-	box-shadow: rgba(0, 0, 0, 0.60) 0px 1px 1px, inset rgba(255, 255, 255, 0.25) 0px 1px 0px ;
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0.0, #0f89d9),
-		color-stop(1, #0abff0)
-		);
-}
-.activeNOP ttl{
-	margin-bottom: 8px;
-	color: #fff;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.70);
-	box-shadow: rgba(0, 0, 0, 0.60) 0px 1px 1px, inset rgba(255, 255, 255, 0.25) 0px 1px 0px ;
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0.0, #0f89d9),
-		color-stop(1, #0abff0)
-		);
-}
-.active ttl{
-	color: #fff;
-	color: #0bb9ed;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.70);
-	background-image: none;
-	background: transparent;
-	border: none;
-	box-shadow: none;
-	cursor: default;
-}
-.boxIn{
-	padding: 10px;
-	padding-top: 6px;
-}
-.ActiveServers li, .preLis li{
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-.ActiveServers li a , .preLis li a, .preLisNoHover li a, .regularButton{
-	border-radius: 3px;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.750);
-	box-shadow: rgba(0, 0, 0, 0.60) 0px 1px 1px, inset rgba(255, 255, 255, 0.15) 0px 1px 0px ;
-	background-color: #36393c;
-	/*border: solid 1px rgba(0, 0, 0, 0.2);*/
-	border: none;
-	box-sizing: border-box;
-	display: block;
-	width: 100%;
-	padding: 8px;
-	margin-bottom: 8px;
-	color:#0bb9ed;
-	font-size: 13px;
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0.0, #424549),
-		color-stop(1, #4c4f54)
-		);
-
-
-}
-.ActiveServers li a:before, .preLis li a:before, .preLisNoHover li a:before{
-	content: "";
-	float: left;
-	background-image: url(noun_project_4032.svg);
-	display: block;
-	width: 24px;
-	height: 24px;
-	display: block;
-	margin-right: 8px;
-	background-size:16px 16px;
-	background-repeat: no-repeat;
-	top:0;
-	background-position: center center;
-	-webkit-filter: invert();
-	opacity:0.5;
-	background-color: #fff;
-	border-radius: 3px;
-	box-shadow: rgba(0, 0, 0, 0.30) 0px 1px 0px, inset rgba(255, 255, 255, 0.35) 0px 0px 4px ;
-	margin-top: -4px;
-	margin-left: -4px;
-}
-.ActiveServers li a:hover:before, .preLis i a:hover:before{
-	opacity:1;
-	background-color: #afafaf;
-}
-.ActiveServers li a:hover, .preLis li a:hover, .regularButton:hover{
-	color: #fff;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.30);
-	box-shadow: rgba(0, 0, 0, 0.60) 0px 1px 1px, inset rgba(255, 255, 255, 0.30) 0px 1px 0px ;
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0.0, #0f89d9),
-		color-stop(1, #0abff0)
-		);
+  font-family: 'font_watchersl';
+  src: url("fonts/Oxygen-Light.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-.ActiveServers li:last-child a, .preLis li:last-child a{
-	margin-bottom: 0px;
-}
-/***********************************************/
-.marginBlock{
-	height:1px;
-	width: 100%
-	overflow: hidden;
-}
-ul, li{
-	margin: 0;
-	padding: 0;
-}
-li{
-	list-style: none;
-}
-label{
-	display: inline-block;
-	padding-left: 5px;
-	margin-bottom: 5px;
-	margin-top: 8px;
-	font-size: 12px;
-	line-height: 12px;
-	color: #c3c4c5;
-	width: 26%;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.50);
-}
-.regularInput{
-	display: inline-block;
-	color: #c3c4c5;
-	width: 71%;
-	border: none;
-	font-size: 13px;
-	padding: 6px;
-	margin-bottom: 7px;
-	border-radius: 2px;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.50);
-	box-shadow: inset rgba(0, 0, 0, 0.7) 0px 0px 3px, rgba(255, 255, 255, 0.1) 0px 1px 0px;
-	background-color: #46494d;
-	border: solid 1px rgba(0, 0, 0, 0.4);
-	box-sizing: border-box;
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(1, #3d3f43),
-		color-stop(0, #424549)
-		);
-
-}
-.regularButton{
-	cursor: pointer;
-	display:inherit;
-	width: inherit;
-	padding: 6px 22px;
-	margin-left: auto;
+/* line 15 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+a {
+  text-decoration: none;
+  color: #c6c6c6;
 }
 
-#no_asociated .preLisNoHover li a{
-	cursor: default;
+/* line 19 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  color: #fff;
 }
+
+/* line 24 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+body {
+  font-family: 'font_watchersl';
+  font-size: 12px;
+  width: 400px;
+  height: 56px;
+}
+
+/* line 30 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+.boxContent {
+  background-color: #393d3e;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  margin: 6px;
+  padding: 6px;
+}
+
+/* line 36 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+.loader {
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  background-image: url("loading.gif");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* line 44 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+.infoBlock {
+  display: none;
+}
+
+/* line 47 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+.hide {
+  display: none;
+}
+
+/* line 50 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+.box {
+  padding: 0px;
+  padding-top: 4px;
+  margin: 0px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+/* line 59 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+.box:last-child {
+  margin-bottom: 2px;
+}
+
+/* line 62 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+.box.active {
+  padding: 0px;
+  -webkit-box-shadow: inset rgba(0,0,0,0.8) 0px 1px 5px, rgba(255,255,255,0.2) 0px 1px 0px;
+  box-shadow: inset rgba(0,0,0,0.8) 0px 1px 5px, rgba(255,255,255,0.2) 0px 1px 0px;
+  font-weight: 400;
+  background-color: #313235;
+  color: #fff;
+}
+
+/* line 69 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+ttl {
+  font-family: 'font_watchers1';
+  margin: 0;
+  padding: 10px;
+  width: 100%;
+  display: block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: #989898;
+  font-size: 14px;
+  line-height: 14px;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.9);
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  text-rendering: optimizeLegibility;
+  -webkit-box-shadow: rgba(0,0,0,0.6) 0px 1px 1px, inset rgba(255,255,255,0.15) 0px 1px 0px;
+  box-shadow: rgba(0,0,0,0.6) 0px 1px 1px, inset rgba(255,255,255,0.15) 0px 1px 0px;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #393b3e), color-stop(1, #4c4f54));
+  background: -webkit-linear-gradient(bottom, #393b3e 0%, #4c4f54 100%);
+  background: -moz-linear-gradient(bottom, #393b3e 0%, #4c4f54 100%);
+  background: -o-linear-gradient(bottom, #393b3e 0%, #4c4f54 100%);
+  background: -ms-linear-gradient(bottom, #393b3e 0%, #4c4f54 100%);
+  background: linear-gradient(bottom, #393b3e 0%, #4c4f54 100%);
+}
+
+/* line 87 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+ttl:hover {
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
+  -webkit-box-shadow: rgba(0,0,0,0.6) 0px 1px 1px, inset rgba(255,255,255,0.25) 0px 1px 0px;
+  box-shadow: rgba(0,0,0,0.6) 0px 1px 1px, inset rgba(255,255,255,0.25) 0px 1px 0px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #00f), color-stop(1, #d00));
+  background: -webkit-linear-gradient(top, #00f 0%, #d00 100%);
+  background: -moz-linear-gradient(top, #00f 0%, #d00 100%);
+  background: -o-linear-gradient(top, #00f 0%, #d00 100%);
+  background: -ms-linear-gradient(top, #00f 0%, #d00 100%);
+  background: linear-gradient(top, #00f 0%, #d00 100%);
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0f89d9), color-stop(1, #0abff0));
+  background: -webkit-linear-gradient(bottom, #0f89d9 0%, #0abff0 100%);
+  background: -moz-linear-gradient(bottom, #0f89d9 0%, #0abff0 100%);
+  background: -o-linear-gradient(bottom, #0f89d9 0%, #0abff0 100%);
+  background: -ms-linear-gradient(bottom, #0f89d9 0%, #0abff0 100%);
+  background: linear-gradient(bottom, #0f89d9 0%, #0abff0 100%);
+}
+
+/* line 95 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+.activeNOP ttl {
+  margin-bottom: 8px;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
+  -webkit-box-shadow: rgba(0,0,0,0.6) 0px 1px 1px, inset rgba(255,255,255,0.25) 0px 1px 0px;
+  box-shadow: rgba(0,0,0,0.6) 0px 1px 1px, inset rgba(255,255,255,0.25) 0px 1px 0px;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0f89d9), color-stop(1, #0abff0));
+  background: -webkit-linear-gradient(bottom, #0f89d9 0%, #0abff0 100%);
+  background: -moz-linear-gradient(bottom, #0f89d9 0%, #0abff0 100%);
+  background: -o-linear-gradient(bottom, #0f89d9 0%, #0abff0 100%);
+  background: -ms-linear-gradient(bottom, #0f89d9 0%, #0abff0 100%);
+  background: linear-gradient(bottom, #0f89d9 0%, #0abff0 100%);
+}
+
+/* line 102 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+.active ttl {
+  color: #0bb9ed;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
+  background-image: none;
+  background: transparent;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  cursor: default;
+}
+
+/* line 111 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+.boxIn {
+  padding: 10px;
+  padding-top: 6px;
+}
+
+/* line 115 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+.ActiveServers li,
+.preLis li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* line 120 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+.ActiveServers li a,
+.preLis li a,
+.preLisNoHover li a,
+.regularButton {
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.75);
+  -webkit-box-shadow: rgba(0,0,0,0.6) 0px 1px 1px, inset rgba(255,255,255,0.15) 0px 1px 0px;
+  box-shadow: rgba(0,0,0,0.6) 0px 1px 1px, inset rgba(255,255,255,0.15) 0px 1px 0px;
+  background-color: #36393c;
+  border: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  color: #0bb9ed;
+  font-size: 13px;
+  margin-left: 0;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #424549), color-stop(1, #4c4f54));
+  background: -webkit-linear-gradient(bottom, #424549 0%, #4c4f54 100%);
+  background: -moz-linear-gradient(bottom, #424549 0%, #4c4f54 100%);
+  background: -o-linear-gradient(bottom, #424549 0%, #4c4f54 100%);
+  background: -ms-linear-gradient(bottom, #424549 0%, #4c4f54 100%);
+  background: linear-gradient(bottom, #424549 0%, #4c4f54 100%);
+}
+
+/* line 136 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+.ActiveServers li a:before,
+.preLis li a:before,
+.preLisNoHover li a:before {
+  content: "";
+  float: left;
+  background-image: url("noun_project_4032.svg");
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  -webkit-background-size: 16px 16px;
+  -moz-background-size: 16px 16px;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  top: 0;
+  background-position: center center;
+  opacity: 0.5;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  filter: alpha(opacity=50);
+  background-color: #fff;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: rgba(0,0,0,0.3) 0px 1px 0px, inset rgba(255,255,255,0.35) 0px 0px 4px;
+  box-shadow: rgba(0,0,0,0.3) 0px 1px 0px, inset rgba(255,255,255,0.35) 0px 0px 4px;
+  margin-top: -4px;
+  margin-left: -4px;
+}
+
+/* line 155 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+.ActiveServers li a:hover:before,
+.preLis i a:hover:before {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  background-color: #afafaf;
+}
+
+/* line 160 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+.ActiveServers li a:hover,
+.preLis li a:hover,
+.regularButton:hover {
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  -webkit-box-shadow: rgba(0,0,0,0.6) 0px 1px 1px, inset rgba(255,255,255,0.3) 0px 1px 0px;
+  box-shadow: rgba(0,0,0,0.6) 0px 1px 1px, inset rgba(255,255,255,0.3) 0px 1px 0px;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0f89d9), color-stop(1, #0abff0));
+  background: -webkit-linear-gradient(bottom, #0f89d9 0%, #0abff0 100%);
+  background: -moz-linear-gradient(bottom, #0f89d9 0%, #0abff0 100%);
+  background: -o-linear-gradient(bottom, #0f89d9 0%, #0abff0 100%);
+  background: -ms-linear-gradient(bottom, #0f89d9 0%, #0abff0 100%);
+  background: linear-gradient(bottom, #0f89d9 0%, #0abff0 100%);
+}
+
+/* line 166 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+.ActiveServers li:last-child a,
+.preLis li:last-child a {
+  margin-bottom: 0px;
+}
+
+/* line 169 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+.marginBlock {
+  height: 1px;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* line 174 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 178 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+ul {
+  margin-left: 0;
+}
+
+/* line 181 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+li {
+  list-style: none;
+}
+
+/* line 185 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+label {
+  display: inline-block;
+  padding-left: 5px;
+  margin-bottom: 5px;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 12px;
+  color: #c3c4c5;
+  width: 26%;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+
+/* line 196 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+.regularInput {
+  display: inline-block;
+  color: #c3c4c5;
+  width: 71%;
+  border: solid 1px rgba(0,0,0,0.4);
+  font-size: 13px;
+  padding: 6px;
+  margin-bottom: 7px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset rgba(0,0,0,0.7) 0px 0px 3px, rgba(255,255,255,0.1) 0px 1px 0px;
+  box-shadow: inset rgba(0,0,0,0.7) 0px 0px 3px, rgba(255,255,255,0.1) 0px 1px 0px;
+  background-color: #46494d;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #3d3f43), color-stop(1, #424549));
+  background: -webkit-linear-gradient(top, #3d3f43 0%, #424549 100%);
+  background: -moz-linear-gradient(top, #3d3f43 0%, #424549 100%);
+  background: -o-linear-gradient(top, #3d3f43 0%, #424549 100%);
+  background: -ms-linear-gradient(top, #3d3f43 0%, #424549 100%);
+  background: linear-gradient(top, #3d3f43 0%, #424549 100%);
+}
+
+/* line 212 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+.regularButton {
+  cursor: pointer;
+  display: inherit;
+  width: inherit;
+  padding: 6px 22px;
+  margin-left: auto;
+}
+
+/* line 219 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+#no_asociated .preLisNoHover li a {
+  cursor: default;
+}
+
+/* line 223 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+.ActiveServers li a:before, .preLis li a:before, .preLisNoHover li a:before {
+		-webkit-filter: invert();
+	}
