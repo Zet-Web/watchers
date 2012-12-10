@@ -222,6 +222,7 @@ ttl:hover {
 /* line 129 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
 .ActiveServers li a,
 .preLis li a,
+.preLisNoHover li a:hover,
 .preLisNoHover li a,
 .regularButton {
   -webkit-border-radius: 3px;
@@ -280,8 +281,7 @@ ttl:hover {
 
 /* line 164 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
 .ActiveServers li a:hover:before,
-.preLis li a:hover:before,
-.preLisNoHover li a:hover:before {
+.preLis li a:hover:before {
   opacity: 1;
   -ms-filter: none;
   filter: none;
@@ -291,7 +291,6 @@ ttl:hover {
 /* line 169 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
 .ActiveServers li a:hover,
 .preLis li a:hover,
-.preLisNoHover li a:hover,
 .regularButton:hover {
   color: #fff;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
@@ -307,53 +306,51 @@ ttl:hover {
 
 /* line 175 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
 .ActiveServers li:last-child a,
-.preLis li:last-child a,
-.preLisNoHover li:last-child a {
+.preLis li:last-child a {
   margin-bottom: 0px;
 }
 
-/* line 181 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
-.preLisNoHover li a:hover {
-  color: #000;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-}
+/* line 180 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
 
-/* line 186 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+/* line 182 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
 
-/* line 188 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+/* line 184 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
 
-/* line 193 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+/* line 187 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+
+/* line 189 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+
+/* line 192 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
 .boxIn {
   padding: 10px;
   padding-top: 6px;
 }
 
-/* line 199 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+/* line 197 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
 .marginBlock {
   height: 1px;
   width: 100%;
   overflow: hidden;
 }
 
-/* line 204 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+/* line 202 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
 ul,
 li {
   margin: 0;
   padding: 0;
 }
 
-/* line 208 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+/* line 206 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
 ul {
   margin-left: 0;
 }
 
-/* line 211 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+/* line 209 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
 li {
   list-style: none;
 }
 
-/* line 215 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+/* line 213 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
 label {
   display: inline-block;
   padding-left: 5px;
@@ -366,7 +363,7 @@ label {
   text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 }
 
-/* line 226 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+/* line 224 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
 .regularInput {
   display: inline-block;
   color: #c3c4c5;
@@ -392,7 +389,7 @@ label {
   background: linear-gradient(top, #3d3f43 0%, #424549 100%);
 }
 
-/* line 242 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+/* line 240 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
 .regularButton {
   cursor: pointer;
   display: inherit;
@@ -401,12 +398,12 @@ label {
   margin-left: auto;
 }
 
-/* line 249 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+/* line 247 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
 #no_asociated .preLisNoHover li a {
   cursor: default;
 }
 
-/* line 253 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
+/* line 251 : D:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl */
 .ActiveServers li a:before, .preLis li a:before, .preLisNoHover li a:before {
 		-webkit-filter: invert();
 	}

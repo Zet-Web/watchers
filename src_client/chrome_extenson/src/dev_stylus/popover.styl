@@ -120,7 +120,7 @@ ttl
 
 
 //ActiveServers________________________________
-.ActiveServers, .preLis, .preLisNoHover
+.ActiveServers, .preLis
 	li
 		margin: 0
 		padding: 0
@@ -177,23 +177,21 @@ ttl
 
 
 
-
-.preLisNoHover li a:hover
-	color: #000
-	border-radius: 3px
-
+.preLisNoHover li
+	@extends .preLis li
+	a:before
+		@extends .preLis li a:before
+	a:hover, a
+		@extends .preLis li a
 
 .regularButton
 	@extends .ActiveServers li a
 	&:hover
 		@extends .ActiveServers li a:hover
 
-
-
 .boxIn
 	padding: 10px
 	padding-top: 6px
-
 
 
 .marginBlock
