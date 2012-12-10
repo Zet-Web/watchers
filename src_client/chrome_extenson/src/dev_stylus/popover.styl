@@ -1,5 +1,4 @@
 @import 'nib'
-
 @font-face {
 	font-family: 'font_watchers1';
 	src: url('fonts/Oxygen-Regular.ttf') format('truetype');
@@ -12,6 +11,8 @@
 	font-weight: normal;
 	font-style: normal;
 }
+
+//___________________________________________
 a
 	text-decoration: none
 	color: #c6c6c6
@@ -26,6 +27,9 @@ body
 	font-size: 12px
 	width: 400px
 	height: 56px
+
+
+//___________________________________________
 
 .boxContent
 	background-color: #393d3e
@@ -47,6 +51,9 @@ body
 .hide
 	display: none
 
+
+
+//BOX________________________________
 .box
 	padding: 0px
 	padding-top: 4px
@@ -56,16 +63,18 @@ body
 	font-size: 14px
 	margin-bottom: 8px
 
-.box:last-child
-	margin-bottom: 2px
+	&:last-child
+		margin-bottom: 2px
 
-.box.active
-	padding: 0px
-	box-shadow: inset rgba(0, 0, 0, 0.80) 0px 1px 5px, rgba(255, 255, 255, 0.20) 0px 1px 0px
-	font-weight: 400
-	background-color: #313235
-	color: #fff
+	&.active
+		padding: 0px
+		box-shadow: inset rgba(0, 0, 0, 0.80) 0px 1px 5px, rgba(255, 255, 255, 0.20) 0px 1px 0px
+		font-weight: 400
+		background-color: #313235
+		color: #fff
 
+
+//TIT________________________________
 ttl
 	font-family: 'font_watchers1'
 	margin: 0
@@ -84,87 +93,108 @@ ttl
 	background: linear-gradient(bottom, #393b3e, #4c4f54);
 
 
-ttl:hover
-	color: #fff
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.70)
-	box-shadow: rgba(0, 0, 0, 0.60) 0px 1px 1px, inset rgba(255, 255, 255, 0.25) 0px 1px 0px
-	background: linear-gradient(top, #00f, #d00);
-	background: linear-gradient(bottom, #0f89d9, #0abff0);
+	&:hover
+		color: #fff
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.70)
+		box-shadow: rgba(0, 0, 0, 0.60) 0px 1px 1px, inset rgba(255, 255, 255, 0.25) 0px 1px 0px
+		background: linear-gradient(top, #00f, #d00);
+		background: linear-gradient(bottom, #0f89d9, #0abff0);
 
 
-.activeNOP ttl
-	margin-bottom: 8px
-	color: #fff
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.70)
-	box-shadow: rgba(0, 0, 0, 0.60) 0px 1px 1px, inset rgba(255, 255, 255, 0.25) 0px 1px 0px
-	background: linear-gradient(bottom, #0f89d9, #0abff0);
+	.activeNOP &
+		margin-bottom: 8px
+		color: #fff
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.70)
+		box-shadow: rgba(0, 0, 0, 0.60) 0px 1px 1px, inset rgba(255, 255, 255, 0.25) 0px 1px 0px
+		background: linear-gradient(bottom, #0f89d9, #0abff0);
 
-.active ttl
-	color: #0bb9ed
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.70)
-	background-image: none
-	background: transparent
-	border: none
-	box-shadow: none
-	cursor: default
+	.active &
+		color: #0bb9ed
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.70)
+		background-image: none
+		background: transparent
+		border: none
+		box-shadow: none
+		cursor: default
+
+
+
+//ActiveServers________________________________
+.ActiveServers, .preLis, .preLisNoHover
+	li
+		margin: 0
+		padding: 0
+		list-style: none
+
+	li a
+		border-radius: 3px
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.750)
+		box-shadow: rgba(0, 0, 0, 0.60) 0px 1px 1px, inset rgba(255, 255, 255, 0.15) 0px 1px 0px
+		background-color: #36393c
+		border: none
+		box-sizing: border-box
+		display: block
+		width: 100%
+		padding: 8px
+		margin-bottom: 8px
+		color: #0bb9ed
+		font-size: 13px
+		margin-left 0
+		background: linear-gradient(bottom, #424549, #4c4f54);
+
+	li a:before
+		content: ""
+		float: left
+		background-image: url(noun_project_4032.svg)
+		display: block
+		width: 24px
+		height: 24px
+		margin-right: 8px
+		background-size: 16px 16px
+		background-repeat: no-repeat
+		top: 0
+		background-position: center center
+		opacity: 0.5
+		background-color: #fff
+		border-radius: 3px
+		box-shadow: rgba(0, 0, 0, 0.30) 0px 1px 0px, inset rgba(255, 255, 255, 0.35) 0px 0px 4px
+		margin-top: -4px
+		margin-left: -4px
+
+	li a:hover:before
+		opacity: 1
+		background-color: #afafaf
+
+
+	li a:hover
+		color: #fff
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.30)
+		box-shadow: rgba(0, 0, 0, 0.60) 0px 1px 1px, inset rgba(255, 255, 255, 0.30) 0px 1px 0px
+		background: linear-gradient(bottom, #0f89d9, #0abff0);
+
+	li:last-child a
+		margin-bottom: 0px
+
+
+
+
+.preLisNoHover li a:hover
+	color: #000
+	border-radius: 3px
+
+
+.regularButton
+	@extends .ActiveServers li a
+	&:hover
+		@extends .ActiveServers li a:hover
+
+
 
 .boxIn
 	padding: 10px
 	padding-top: 6px
 
-.ActiveServers li, .preLis li
-	margin: 0
-	padding: 0
-	list-style: none
 
-.ActiveServers li a , .preLis li a, .preLisNoHover li a, .regularButton
-	border-radius: 3px
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.750)
-	box-shadow: rgba(0, 0, 0, 0.60) 0px 1px 1px, inset rgba(255, 255, 255, 0.15) 0px 1px 0px
-	background-color: #36393c
-	border: none
-	box-sizing: border-box
-	display: block
-	width: 100%
-	padding: 8px
-	margin-bottom: 8px
-	color: #0bb9ed
-	font-size: 13px
-	margin-left 0
-	background: linear-gradient(bottom, #424549, #4c4f54);
-
-.ActiveServers li a:before, .preLis li a:before, .preLisNoHover li a:before
-	content: ""
-	float: left
-	background-image: url(noun_project_4032.svg)
-	display: block
-	width: 24px
-	height: 24px
-	margin-right: 8px
-	background-size: 16px 16px
-	background-repeat: no-repeat
-	top: 0
-	background-position: center center
-	opacity: 0.5
-	background-color: #fff
-	border-radius: 3px
-	box-shadow: rgba(0, 0, 0, 0.30) 0px 1px 0px, inset rgba(255, 255, 255, 0.35) 0px 0px 4px
-	margin-top: -4px
-	margin-left: -4px
-
-.ActiveServers li a:hover:before, .preLis i a:hover:before
-	opacity: 1
-	background-color: #afafaf
-
-
-.ActiveServers li a:hover, .preLis li a:hover, .regularButton:hover
-	color: #fff
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.30)
-	box-shadow: rgba(0, 0, 0, 0.60) 0px 1px 1px, inset rgba(255, 255, 255, 0.30) 0px 1px 0px
-	background: linear-gradient(bottom, #0f89d9, #0abff0);
-
-.ActiveServers li:last-child a, .preLis li:last-child a
-	margin-bottom: 0px
 
 .marginBlock
 	height: 1px
@@ -225,3 +255,4 @@ label
 		-webkit-filter: invert();
 	}
 }
+
