@@ -4,7 +4,7 @@
   "manifest_version": 2,
   "description": "Whatever you want it to be",
   "background": {
-    "scripts": ["faye-browser.js", "watchersClient.js", "jstorage.min.js", "background.js"],
+    "scripts": ["js/faye-browser.js", "watchersClient.js", "js/jstorage.min.js", "background.js"],
     "persistent": true
   },
   "author": "Alejandro Emparan",
@@ -17,7 +17,7 @@
   "content_scripts": [
     {
        "matches": ["http://*/*","https://*/*"],
-      "js": ["jquery-1.7.2.min.js", "tabScript.js"]
+      "js": ["js/jquery-1.7.2.min.js", "tabScript.js"]
     }
   ],
   "content_security_policy": "script-src 'self' http://localhost:35729 http://localhost:35730 http://localhost:35731 http://localhost:35732 http://localhost:35733 http://localhost:35734 http://localhost:35735 http://localhost:35736 http://localhost:35737 http://localhost:35738 http://localhost:35739; object-src 'self'",
