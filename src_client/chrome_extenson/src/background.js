@@ -21,7 +21,9 @@ var backgroundjsObj = new function backgroundjs(){
 	var serverWatchers = [];
 	var optionsMegaServer = {};
 	var CreateServer_callBack = null;
-	var savedWatchers = null
+	var savedWatchers = null;
+	var checkStatusInit = false;
+	var checkStatusTime = 2500;
 
     //Public updatetabs2refresh
     this.getTabPort  = function(tab){ return getTabPort(tab);};
@@ -282,6 +284,8 @@ function createWebRefresServer($options, $callBack){
     	if (data.options4save){
     		storeWatcher(data.options4save)
     	}
+
+    	InitCheckStatus();
     }
 
     function Disconnect(port){
@@ -398,11 +402,12 @@ function createWebRefresServer($options, $callBack){
     	var miTab = getTabbyId(lastTabSelected.id);
     	var isConected = checkTabisConnected(lastTabSelected);
 
+    	//TODO: Hacer el cambio de manera inteligente
     	if (miTab.tab){
     		if (isConected){
     			/*OK*/
     			chrome.browserAction.setIcon({path:'icon/icon-19_ok.png'});
-    			console.log("       [checkIcon] Mi tab id: " + lastTabSelected.id + " isConected: " + isConected);
+    			//console.log("       [checkIcon] Mi tab id: " + lastTabSelected.id + " isConected: " + isConected);
     		}else{
     			/*Wait*/
     			chrome.browserAction.setIcon({path:'icon/icon-19_wait.png'});
@@ -420,10 +425,24 @@ function createWebRefresServer($options, $callBack){
     		var miTabPort = miTab.obj.port;
     		var miListener = getListanerbyPort(miTabPort).listener;
     		if (miListener) isConected = miListener.conected;
-                //if (miListener) isConected = miListener.listener.getState()
-            }
-            return isConected;
+            //if (miListener) isConected = miListener.listener.getState()
         }
+        return isConected;
+    }
+    function InitCheckStatus(){
+    	if (!checkStatusInit)checkStatus();
+    	checkStatusInit = true;
+    }
+    function checkStatus(){
+    	setTimeout(function() {
+    		if (!connected){
+    			location.reload();
+    		}else{
+    			checkIconDelayed()
+    			checkStatus()
+    		}
+    	}, checkStatusTime);
+    }
 
 
     // removeCache.
@@ -471,9 +490,20 @@ function createWebRefresServer($options, $callBack){
     }
     function storeWatcher(wOptions){
     	if (wOptions === null)return;
-    	savedWatchers.push(wOptions);
-    	$.jStorage.set('savedWatchers', savedWatchers);
-    }
+
+    	var encontro = false;
+    	for (var i = savedWatchers.length - 1; i >= 0; i--) {
+    		if (savedWatchers[i].name === wOptions.name){
+    			encontro = true;
+    		}
+    	};
+
+    	if (!encontro){
+           //TODO: Si encontro, borrar el + viejo
+           savedWatchers.push(wOptions);
+           $.jStorage.set('savedWatchers', savedWatchers);
+       }
+   }
 
 
 
