@@ -1,1 +1,1 @@
-Start k:\portable\ConEmu\ConEmu.exe /cmd node d:\DEV\usbwebserver\htdocs\watchers\lib\main.js d:\DEV\usbwebserver\htdocs\watchers\test\css\
+Start k:\portable\ConEmu\ConEmu.exe /cmd node d:\DEV\usbwebserver\htdocs\watchers\lib\main.js d:\DEV\usbwebserver\htdocs\watchers\test\css\ -n TEST
