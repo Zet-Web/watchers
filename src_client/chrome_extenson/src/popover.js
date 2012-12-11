@@ -3,6 +3,7 @@ var asociated, connected = false;
 var asociatedPort = -1;
 var asociatedName = "";
 var serverWatchers = [];
+var serverWatchersStored = [];
 
 
 //OnOpen (click)___________________________________________
@@ -15,6 +16,10 @@ chrome.tabs.getSelected(null, function(tab) {
 			console.log('backgroundjs.connected: ' +backgroundjs.connected());
 			if (!backgroundjs.connected()){
 				backgroundjs.startmegaServer(function (status) {
+					if (status === null){
+						console.log('fail');
+						location.reload();
+					}
 					console.log(status);
 					if (status){
 						console.log('conecto-1');
@@ -39,6 +44,7 @@ function conecto(tab){
 	asociated = backgroundjs.getTabsStatusAsoc(tab);
 	asociatedPort = backgroundjs.getTabPort(tab);
 	serverWatchers = backgroundjs.serverWatchers();
+	serverWatchersStored = backgroundjs.serverWatchersStored();
 	connected = backgroundjs.checkTabisConnected(tab);
 	if (!backgroundjs.isValidTag(tab)) {
 		alert ('This is not a valid tab');
@@ -75,7 +81,7 @@ function onPopUpOpen(){
 	if (!asociated){
 		$('#asociated').slideDown({duration:200, easing:"easeOutExpo"});
 
-
+		//!!!!!!!!SEGUIR
 		// LISTA SERVERS ACTIVOS___________________________________
 		if (serverWatchers.length >0){
 			console.log(serverWatchers);
