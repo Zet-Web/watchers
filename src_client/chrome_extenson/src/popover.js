@@ -4,6 +4,7 @@ var asociatedPort = -1;
 var asociatedName = "";
 var serverWatchers = [];
 var serverWatchersStored = [];
+var miNodeData = null
 
 
 //OnOpen (click)___________________________________________
@@ -81,7 +82,8 @@ function onPopUpOpen(){
 	if (!asociated){
 		$('#asociated').slideDown({duration:200, easing:"easeOutExpo"});
 
-		//!!!!!!!!SEGUIR
+
+
 		// LISTA SERVERS ACTIVOS___________________________________
 		if (serverWatchers.length >0){
 			console.log(serverWatchers);
@@ -100,6 +102,42 @@ function onPopUpOpen(){
 		}else{
 			openBox(1);
 			$('.ActiveServers').hide();
+		}
+
+
+
+		// LISTA SERVERS STOREADOS___________________________________
+		if (serverWatchersStored.length >0){
+			for (var i = serverWatchersStored.length - 1; i >= 0; i--) {
+				var miOldWadtcher = serverWatchersStored[i]
+				console.log(miOldWadtcher);
+				$('.WatchersStored ul').append('<li><a class="WatcherStored" href="#" data-indexObj='+i+' data-miname="'+serverWatchersStored[i].name+'" >' + serverWatchersStored[i].name + '</a></li>' );
+			}
+			//CLICK EN ACTIVO
+			$('.WatcherStored').click(function () {
+				miindexObj = $(this).attr('data-indexObj')
+				miObj = serverWatchersStored[miindexObj]
+				console.log(miObj);
+				backgroundjs.createWebRefresServer(miObj, function(status, message){
+					if (status){
+						if (message.error){
+							//RECIBE UN ERROR
+							alert (message.errorTxt);
+							return false;
+						}
+						if (message.created){
+							//RECIBE UN OK
+							console.log(status + ' / ' + message.name+ ' / ' + message.port);
+							asociated = backgroundjs.updatetabs2refresh(miTab, message.port);
+							self.close();
+						}
+					}else{
+						alert ("Status False");
+					}
+				});
+			});
+		}else{
+			$('.WatchersStored').hide();
 		}
 
 
@@ -156,7 +194,6 @@ function onPopUpOpen(){
 				}
 			});
 		});
-
 
 }else{
 		//DESCONECTAR___________________________________
