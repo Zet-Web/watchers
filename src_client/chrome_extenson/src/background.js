@@ -2,14 +2,13 @@
 /*Experiment inject*/
 
 var backgroundjsObj = new function backgroundjs(){
-
+	chrome.browserAction.setIcon({path:'icon/icon-19.png'});
 	console.log("watchers Background 0.3.30 | " + new Date());
 
 	var tabs2refresh = [];
 	var LastfireDate = new Date();
 	var counter = 0;
 	var statusStr;
-	var init = false;
 	var lastTabSelected = null;
 	var deleteCache = true;
 	var listeners  = [];
@@ -381,6 +380,15 @@ var backgroundjsObj = new function backgroundjs(){
 
 	//isValidTag
 	//_____________________________________________________
+	function isValidTagHard(tab) {
+		if (tab === null) return false;
+		if (tab === undefined) return false;
+		if (tab.url === null || tab.url === undefined) return false;
+		if (tab.id === null || tab.id === undefined) return false;
+		if (tab.id>0 === false) return false;
+		if (tab.url.length>0 === false)return false;
+		return true;
+	}
 	function isValidTag(tab) {
 		if (tab === null) return false;
 		if (tab === undefined) return false;
@@ -397,9 +405,14 @@ var backgroundjsObj = new function backgroundjs(){
 	// Change icon checker
 	//_____________________________________________________
 	function checkIcon() {
-		setTimeout(checkIconDelayed, 100);
+		setTimeout(checkIconDelayed, 200);
 	}
 	function checkIconDelayed() {
+		if (!isValidTagHard(lastTabSelected)){
+			chrome.browserAction.setIcon({path:'icon/icon-19.png'});
+			reCheckActualTab();
+			return;
+		}
 		if (!isValidTag(lastTabSelected)){
 			chrome.browserAction.setIcon({path:'icon/icon-19.png'});
 			return;
@@ -507,7 +520,6 @@ var backgroundjsObj = new function backgroundjs(){
 		}
 		if (!encontro){
 			//TODO: Si encontro, borrar el + viejo
-			wOptions.port = null;
 			savedWatchers.push(wOptions);
 			$.jStorage.set('savedWatchers', savedWatchers);
 		}
@@ -533,32 +545,46 @@ var backgroundjsObj = new function backgroundjs(){
 
 	// Called when the url of a tab changes.
 	//_____________________________________________________
+	function reCheckActualTab(){
+		chrome.windows.getCurrent(function(win) {
+			chrome.tabs.getSelected(win.id, function (tab){
+				lastTabSelected = tab;
+				console.log('		reCheckActualTab: ' + lastTabSelected.id + "/" + new Date());
+				setTimeout(function() {
+					checkIcon();
+				}, 100);
+			});
+		});
+	}
 	function tabDesasociate(tabId, removeInfo) {
 		if (tabId>0){
-
 			var miTab = getTabbyId(tabId);
-			if (miTab.tab === null) return;
+			if (miTab.tab !== null) {
 
-			tabs2refresh.splice (miTab.index, 1);
-			if (removeInfo === null) removeInfo = '';
-			console.log("\n[tabDesasociate]: " + tabId + " - removeInfo: " + removeInfo + " - TabsListen: " + tabs2refresh.length);
+				tabs2refresh.splice (miTab.index, 1);
+				if (removeInfo === null) removeInfo = '';
+				console.log("\n[tabDesasociate]: " + tabId + " - removeInfo: " + removeInfo + " - TabsListen: " + tabs2refresh.length);
 
-			if ( Number (miTab.obj.port) > 1){
-				var cantPort = 0;
-				var listenerPort = miTab.obj.port;
-				for (var i = tabs2refresh.length - 1; i >= 0; i--) {
-					if (listenerPort === tabs2refresh[i].port){
-						cantPort++;
+				if ( Number (miTab.obj.port) > 1){
+					var cantPort = 0;
+					var listenerPort = miTab.obj.port;
+					for (var i = tabs2refresh.length - 1; i >= 0; i--) {
+						if (listenerPort === tabs2refresh[i].port){
+							cantPort++;
+						}
 					}
-				}
-				if (cantPort === 0) {
-					console.log("   >>No more tabs listen port: " + listenerPort + ", remove listener");
-					var miListener = getListanerbyPort(listenerPort).listener;
-					if (miListener !== null) miListener.disconect();
-				}
+					if (cantPort === 0) {
+						console.log("   >>No more tabs listen port: " + listenerPort + ", remove listener");
+						var miListener = getListanerbyPort(listenerPort).listener;
+						if (miListener !== null) miListener.disconect();
+					}
 
-				checkIcon();
+					checkIcon();
+				}
 			}
+		}
+		if (tabs2refresh.length === 0 && megaServer!== null){
+			location.reload();
 		}
 	}
 
@@ -572,6 +598,7 @@ var backgroundjsObj = new function backgroundjs(){
 	});
 
 	//Arranca
+	/*
 	chrome.windows.getCurrent(function(win) {
 		chrome.tabs.getSelected(win.id, function (tab){
 			lastTabSelected = tab;
@@ -579,6 +606,9 @@ var backgroundjsObj = new function backgroundjs(){
 			checkIcon();
 		});
 	});
+*/
+
+
 
 	//Tabs Changes
 	chrome.tabs.onUpdated.addListener(checkIcon);

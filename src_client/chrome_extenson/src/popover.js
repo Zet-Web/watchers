@@ -1,7 +1,6 @@
 var miTab, bg, backgroundjs = null;
 var asociated, connected = false;
 var asociatedPort = -1;
-var asociatedName = "";
 var serverWatchers = [];
 var serverWatchersStored = [];
 var miNodeData = null
@@ -11,8 +10,8 @@ var miNodeData = null
 chrome.tabs.getSelected(null, function(tab) {
 	if (tab !== null){
 		bg = chrome.extension.getBackgroundPage();
-		miTab = tab;
 		if (bg !== null){
+			miTab = tab;
 			backgroundjs = bg.backgroundjsObj;
 			console.log('backgroundjs.connected: ' +backgroundjs.connected());
 			if (!backgroundjs.connected()){
@@ -45,6 +44,7 @@ function conecto(tab){
 	asociated = backgroundjs.getTabsStatusAsoc(tab);
 	asociatedPort = backgroundjs.getTabPort(tab);
 	serverWatchers = backgroundjs.serverWatchers();
+	console.log(serverWatchers);
 	serverWatchersStored = backgroundjs.serverWatchersStored();
 	connected = backgroundjs.checkTabisConnected(tab);
 	if (!backgroundjs.isValidTag(tab)) {
@@ -92,9 +92,11 @@ function onPopUpOpen(){
 			}
 			//CLICK EN ACTIVO
 			$('.activeServer').click(function () {
+				if (!backgroundjs.connected()){
+					location.reload();
+				}
 				miMport = $(this).attr('data-miport');
 				miName = $(this).attr('data-miname');
-				asociatedName = miName;
 				asociated = backgroundjs.updatetabs2refresh(miTab, miMport);
 				self.close();
 			});
@@ -115,6 +117,9 @@ function onPopUpOpen(){
 			}
 			//CLICK EN ACTIVO
 			$('.WatcherStored').click(function () {
+				if (!backgroundjs.connected()){
+					location.reload();
+				}
 				miindexObj = $(this).attr('data-indexObj')
 				miObj = serverWatchersStored[miindexObj]
 				console.log(miObj);
@@ -177,7 +182,6 @@ function onPopUpOpen(){
 
 			var Poptions = {path2watch:path, name:name, ignore:igno, only:only};
 			console.log(Poptions);
-			asociatedName = name;
 			backgroundjs.createWebRefresServer(Poptions, function(status, message){
 				if (status){
 					if (message.error){
@@ -208,7 +212,9 @@ function onPopUpOpen(){
 
 		/*INFO NAME*/
 		var miName = null;
+		console.log(serverWatchers.length);
 		for (var j = serverWatchers.length - 1; j >= 0; j--) {
+			serverWatchers[j].name
 			if (serverWatchers[j].port == asociatedPort){
 				miName = serverWatchers[j].name;
 			}
