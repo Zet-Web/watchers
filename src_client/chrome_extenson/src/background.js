@@ -380,16 +380,8 @@ var backgroundjsObj = new function backgroundjs(){
 
 	//isValidTag
 	//_____________________________________________________
-	function isValidTagHard(tab) {
-		if (tab === null) return false;
-		if (tab === undefined) return false;
-		if (tab.url === null || tab.url === undefined) return false;
-		if (tab.id === null || tab.id === undefined) return false;
-		if (tab.id>0 === false) return false;
-		if (tab.url.length>0 === false)return false;
-		return true;
-	}
 	function isValidTag(tab) {
+		//TODO: Ver que pasa cuando viene de un Alert
 		if (tab === null) return false;
 		if (tab === undefined) return false;
 		if (tab.url === null || tab.url === undefined) return false;
@@ -408,11 +400,6 @@ var backgroundjsObj = new function backgroundjs(){
 		setTimeout(checkIconDelayed, 200);
 	}
 	function checkIconDelayed() {
-		if (!isValidTagHard(lastTabSelected)){
-			chrome.browserAction.setIcon({path:'icon/icon-19.png'});
-			reCheckActualTab();
-			return;
-		}
 		if (!isValidTag(lastTabSelected)){
 			chrome.browserAction.setIcon({path:'icon/icon-19.png'});
 			return;
@@ -527,6 +514,7 @@ var backgroundjsObj = new function backgroundjs(){
 	function serverWatchersStored(){
 		var miReturnArray = [];
 		//SI ESTA ACTIVO NO LO MUESTRA
+		//TODO: VALIDAR
 		for (var i = savedWatchers.length - 1; i >= 0; i--) {
 			var serverSaved = savedWatchers[i];
 			var encontro = false;
@@ -545,17 +533,6 @@ var backgroundjsObj = new function backgroundjs(){
 
 	// Called when the url of a tab changes.
 	//_____________________________________________________
-	function reCheckActualTab(){
-		chrome.windows.getCurrent(function(win) {
-			chrome.tabs.getSelected(win.id, function (tab){
-				lastTabSelected = tab;
-				console.log('		reCheckActualTab: ' + lastTabSelected.id + "/" + new Date());
-				setTimeout(function() {
-					checkIcon();
-				}, 100);
-			});
-		});
-	}
 	function tabDesasociate(tabId, removeInfo) {
 		if (tabId>0){
 			var miTab = getTabbyId(tabId);
