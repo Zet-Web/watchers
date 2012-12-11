@@ -42,7 +42,7 @@ function listenAndRefresh(options){
 
 	function connect_(){
 		if (connected) return;
-		console.log('listenAndRefresh Ver 0.3.28');
+		console.log('listenAndRefresh Ver 0.3.30');
 		listener = new Faye.Client(options.server+':'+options.port+'/' , {});
 		subscription = listener.subscribe('/'+options.channel, function(message) {
 			connected = true;

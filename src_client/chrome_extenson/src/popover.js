@@ -122,7 +122,8 @@ function onPopUpOpen(){
 					if (status){
 						if (message.error){
 							//RECIBE UN ERROR
-							alert (message.errorTxt);
+							alert ("Error: " + message.errorTxt);
+							self.close();
 							return false;
 						}
 						if (message.created){
@@ -133,6 +134,7 @@ function onPopUpOpen(){
 						}
 					}else{
 						alert ("Status False");
+						self.close();
 					}
 				});
 			});
@@ -180,7 +182,8 @@ function onPopUpOpen(){
 				if (status){
 					if (message.error){
 						//RECIBE UN ERROR
-						alert (message.errorTxt);
+						alert ("Error: " + message.errorTxt);
+						self.close();
 						return false;
 					}
 					if (message.created){
@@ -191,6 +194,7 @@ function onPopUpOpen(){
 					}
 				}else{
 					alert ("Status False");
+					self.close();
 				}
 			});
 		});

@@ -3,7 +3,7 @@
 
 var backgroundjsObj = new function backgroundjs(){
 
-	console.log("watchers Background 0.3.28 | " + new Date());
+	console.log("watchers Background 0.3.30 | " + new Date());
 
 	var tabs2refresh = [];
 	var LastfireDate = new Date();
@@ -122,6 +122,9 @@ var backgroundjsObj = new function backgroundjs(){
 					connected = true;
 					// console.log('\nMegaServer serverWatchers:---------------');
 					serverWatchers = message.serverWatchers;
+					for (var i = serverWatchers.length - 1; i >= 0; i--) {
+						storeWatcher(serverWatchers[i]);
+					}
 					console.log('   GET serverWatchers OK');
 					// console.log('--------------------------------------\n');
 					if (callBack !== null) {
@@ -285,7 +288,7 @@ var backgroundjsObj = new function backgroundjs(){
 		sendMessageToServer(data.port, {action:'Hi'});
 
 		if (data.options4save){
-			storeWatcher(data.options4save);
+			//storeWatcher(data.options4save);
 		}
 
 		InitCheckStatus();
@@ -496,36 +499,32 @@ var backgroundjsObj = new function backgroundjs(){
 	}
 	function storeWatcher(wOptions){
 		if (wOptions === null)return;
-
 		var encontro = false;
 		for (var i = savedWatchers.length - 1; i >= 0; i--) {
 			if (savedWatchers[i].name === wOptions.name){
 				encontro = true;
 			}
 		}
-
 		if (!encontro){
 			//TODO: Si encontro, borrar el + viejo
+			wOptions.port = null;
 			savedWatchers.push(wOptions);
 			$.jStorage.set('savedWatchers', savedWatchers);
 		}
 	}
 	function serverWatchersStored(){
 		var miReturnArray = [];
+		//SI ESTA ACTIVO NO LO MUESTRA
 		for (var i = savedWatchers.length - 1; i >= 0; i--) {
 			var serverSaved = savedWatchers[i];
-			console.log('++++++++++++++++++++++');
-			console.log(serverSaved);
 			var encontro = false;
 			for (var j = serverWatchers.length - 1; j >= 0; j--) {
 				var serverActive = serverWatchers[j];
 				if (serverActive.name === serverSaved.name){
 					encontro = true;
 				}
-				console.log(serverActive.name + " - " + serverSaved.name);
 			}
 			if (!encontro)miReturnArray.push(serverSaved);
-			console.log('++++++++++++++++++++++');
 		}
 		return miReturnArray;
 	}
