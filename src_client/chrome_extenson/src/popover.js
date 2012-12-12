@@ -90,6 +90,10 @@ function onPopUpOpen(){
 			for (var i = serverWatchers.length - 1; i >= 0; i--) {
 				$('.ActiveServers ul').append('<li><a class="activeServer" href="#" data-miname="'+serverWatchers[i].name+'" data-miport="'+serverWatchers[i].port+'">' + serverWatchers[i].name + '</a></li>' );
 			}
+			//NEED SCROLL?
+			if (serverWatchers.length > 4) {
+				$('.ActiveServers .boxIn ul').addClass('custom_scrollbar');
+			}
 			//CLICK EN ACTIVO
 			$('.activeServer').click(function () {
 				if (!backgroundjs.connected()){
@@ -114,6 +118,10 @@ function onPopUpOpen(){
 				var miOldWadtcher = serverWatchersStored[i]
 				console.log(miOldWadtcher);
 				$('.WatchersStored ul').append('<li><a class="WatcherStored" href="#" data-indexObj='+i+' data-miname="'+serverWatchersStored[i].name+'" >' + serverWatchersStored[i].name + '</a></li>' );
+			}
+			//NEED SCROLL?
+			if (serverWatchersStored.length > 4) {
+				$('.WatchersStored .boxIn ul').addClass('custom_scrollbar');
 			}
 			//CLICK EN ACTIVO
 			$('.WatcherStored').click(function () {

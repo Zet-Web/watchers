@@ -1,4 +1,6 @@
-@import 'nib'
+@import 'nib/vendor'
+@import 'nib/gradients'
+
 @font-face {
 	font-family: 'font_watchers1';
 	src: url('fonts/Oxygen-Regular.ttf') format('truetype');
@@ -190,13 +192,8 @@ ttl
 		@extends .ActiveServers li a:hover
 
 .boxIn
-	//padding: 10px
-	//padding-top: 6px
-	margin 10px
-	margin-top 0px
-	margin-bottom 0px
-	padding-bottom 10px
-
+	padding: 10px
+	padding-top: 6px
 
 .marginBlock
 	height: 1px
@@ -261,11 +258,9 @@ label
 
 @css{
 	.custom_scrollbar {
-		max-height: 148px;
+		max-height: 154px;
 		overflow-y: scroll;
-		margin-right: 4px;
-		padding-right: 8px;
-		margin-right: 8px;
+		padding-right: 10px;
 	}
 	.custom_scrollbar::-webkit-scrollbar {
 		width: 8px;
@@ -274,13 +269,10 @@ label
 	.custom_scrollbar::-webkit-scrollbar-track {
 		background-color: rgba(0,0,0,0.5);
 		-webkit-border-radius: 2px;
-	    padding-bottom:20px;
-		padding-top:20px;
 	}
 	.custom_scrollbar::-webkit-scrollbar-thumb {
 		background-color: #4a4d52;
 		-webkit-border-radius: 2px;
-	    padding: 20px !important;
 	}
 	.custom_scrollbar::-webkit-scrollbar-thumb:hover {
 		background: #797f88;
