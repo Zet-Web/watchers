@@ -190,8 +190,12 @@ ttl
 		@extends .ActiveServers li a:hover
 
 .boxIn
-	padding: 10px
-	padding-top: 6px
+	//padding: 10px
+	//padding-top: 6px
+	margin 10px
+	margin-top 0px
+	margin-bottom 0px
+	padding-bottom 10px
 
 
 .marginBlock
@@ -254,3 +258,31 @@ label
 	}
 }
 
+
+@css{
+	.custom_scrollbar {
+		max-height: 148px;
+		overflow-y: scroll;
+		margin-right: 4px;
+		padding-right: 8px;
+		margin-right: 8px;
+	}
+	.custom_scrollbar::-webkit-scrollbar {
+		width: 8px;
+		height: 16px;
+	}
+	.custom_scrollbar::-webkit-scrollbar-track {
+		background-color: rgba(0,0,0,0.5);
+		-webkit-border-radius: 2px;
+	    padding-bottom:20px;
+		padding-top:20px;
+	}
+	.custom_scrollbar::-webkit-scrollbar-thumb {
+		background-color: #4a4d52;
+		-webkit-border-radius: 2px;
+	    padding: 20px !important;
+	}
+	.custom_scrollbar::-webkit-scrollbar-thumb:hover {
+		background: #797f88;
+	}
+}
