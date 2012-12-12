@@ -14,6 +14,11 @@ chrome.tabs.getSelected(null, function(tab) {
 			miTab = tab;
 			backgroundjs = bg.backgroundjsObj;
 			console.log('backgroundjs.connected: ' +backgroundjs.connected());
+			if (!backgroundjs.isValidTag(tab)) {
+				alert ('This is not a valid tab');
+				self.close();
+				return;
+			};
 			if (!backgroundjs.connected()){
 				backgroundjs.startmegaServer(function (status) {
 					if (status === null){
@@ -47,10 +52,6 @@ function conecto(tab){
 	console.log(serverWatchers);
 	serverWatchersStored = backgroundjs.serverWatchersStored();
 	connected = backgroundjs.checkTabisConnected(tab);
-	if (!backgroundjs.isValidTag(tab)) {
-		alert ('This is not a valid tab');
-		self.close();
-	};
 	onPopUpOpen();
 }
 
