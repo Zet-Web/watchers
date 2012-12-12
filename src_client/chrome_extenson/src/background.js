@@ -286,11 +286,6 @@ var backgroundjsObj = new function backgroundjs(){
 		}
 		sendMessageToServer(data.port, {action:'Hi'});
 
-		if (data.options4save){
-			//storeWatcher(data.options4save);
-		}
-
-		InitCheckStatus();
 	}
 
 	function Disconnect(port){
@@ -397,9 +392,14 @@ var backgroundjsObj = new function backgroundjs(){
 	// Change icon checker
 	//_____________________________________________________
 	function checkIcon() {
-		setTimeout(checkIconDelayed, 200);
+		setTimeout(checkIconDelayed, 10);
 	}
 	function checkIconDelayed() {
+
+		chrome.tabs.query({active: true}, function(tabArray) {
+			lastTabSelected = tabArray[0];
+		});
+
 		if (!isValidTag(lastTabSelected)){
 			chrome.browserAction.setIcon({path:'icon/icon-19.png'});
 			return;
@@ -434,23 +434,6 @@ var backgroundjsObj = new function backgroundjs(){
 			//if (miListener) isConected = miListener.listener.getState()
 		}
 		return isConected;
-	}
-	function InitCheckStatus(){
-		if (!checkStatusInit)checkStatus();
-		checkStatusInit = true;
-	}
-	function checkStatus(){
-		setTimeout(function() {
-			if (tabs2refresh.length === 0){
-				location.reload();
-			}
-			if (!connected){
-				location.reload();
-			}else{
-				checkIconDelayed();
-				checkStatus();
-			}
-		}, checkStatusTime);
 	}
 
 
@@ -493,9 +476,11 @@ var backgroundjsObj = new function backgroundjs(){
 		if (savedWatchers === null){
 			savedWatchers = [];
 		}
-		console.log('===================================');
-		console.log(savedWatchers );
-		console.log('===================================');
+		if (!true){
+			console.log('===================================');
+			console.log(savedWatchers );
+			console.log('===================================');
+		}
 	}
 	function storeWatcher(wOptions){
 		if (wOptions === null)return;
@@ -569,22 +554,10 @@ var backgroundjsObj = new function backgroundjs(){
 	chrome.tabs.onSelectionChanged.addListener(function(tabId, selectInfo) {
 		chrome.tabs.get(tabId, function(tab) {
 			lastTabSelected = tab;
-			console.log('		SChanged: ' + lastTabSelected.id + "/" + new Date());
+			if (!true) console.log('		SChanged: ' + lastTabSelected.id + "/" + new Date());
 			checkIcon();
 		});
 	});
-
-	//Arranca
-	/*
-	chrome.windows.getCurrent(function(win) {
-		chrome.tabs.getSelected(win.id, function (tab){
-			lastTabSelected = tab;
-			console.log('		SChanged: ' + lastTabSelected.id + "/" + new Date() + " getCurrent");
-			checkIcon();
-		});
-	});
-*/
-
 
 
 	//Tabs Changes
