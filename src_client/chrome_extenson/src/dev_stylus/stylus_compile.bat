@@ -1,1 +1,2 @@
-stylus -w -u nib -l -o ../
+Start k:\portable\ConEmu\ConEmu.exe /cmd  watchers d:\xampplite\htdocs\watchers\src_client\chrome_extenson\src\dev_stylus\popover.styl -n WatchStyleCss
+Start k:\portable\ConEmu\ConEmu.exe /cmd  stylus -w -u nib -c -o ../
