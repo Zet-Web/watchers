@@ -189,6 +189,10 @@ function onPopUpOpen(){
 				}
 			}
 
+			if (only === "" && igno=== "" ){
+				only = ".php, .html, .htm, .js, .css"
+			};
+
 			var Poptions = {path2watch:path, name:name, ignore:igno, only:only};
 			console.log(Poptions);
 			backgroundjs.createWebRefresServer(Poptions, function(status, message){
