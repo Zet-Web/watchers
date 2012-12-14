@@ -162,6 +162,8 @@ ttl
 		box-shadow: rgba(0, 0, 0, 0.30) 0px 1px 0px, inset rgba(255, 255, 255, 0.35) 0px 0px 4px
 		margin-top: -4px
 		margin-left: -4px
+		-webkit-filter unquote("invert()")
+
 
 	li a:hover:before
 		opacity: 1
@@ -328,10 +330,3 @@ input[type=checkbox] {
 	input[type=checkbox]:checked + label
 		left: 30px;
 
-
-
-@css{
-	.ActiveServers li a:before, .preLis li a:before, .preLisNoHover li a:before {
-		-webkit-filter: invert();
-	}
-}
