@@ -12,10 +12,17 @@
 		<!-- **************************** -->
 		<div id='asociated' class='infoBlock'>
 			<!-- Listado de Watchers____________________ -->
-			<div class='ActiveServers box'>
+			<div class='box watchers_ready'>
 				<ttl>Watchers ready</ttl>
 				<div class='WatcherForm boxIn hide'>
-					<ul></ul>
+					<div class='ScrollBox'>
+						<div class='ActiveServers'>
+							<ul></ul>
+						</div>
+						<div class='WatchersStored'>
+							<ul></ul>
+						</div>
+					</div>
 				</div>
 			</div>
 			<!-- Crerr un Watchers____________________ -->
@@ -33,24 +40,10 @@
 							<input class='regularInput inputIgnore' type="text" >
 							<label>Only:</label>
 							<input class='regularInput inputOnly' type="text" >
-							<div>
-								<label>Inject css:</label>
-								<div class="slide ">
-									<input type="checkbox" value="None" id="slideThree" name="check" />
-									<label for="slideThree"></label>
-								</div>
-							</div>
 						</div>
 						<br><br>
 						<button class="regularButton createWatcherForm">Create</button>
 					</div>
-				</div>
-			</div>
-			<!-- Recent Watchers____________________ -->
-			<div class="WatchersStored preLis box">
-				<ttl>Recent Watchers</ttl>
-				<div class="WatcherForm boxIn hide" style="display: block;">
-					<ul></ul>
 				</div>
 			</div>
 		</div>
@@ -64,6 +57,13 @@
 							<a ><div class="AsociationInfo"><span class='miName'></span></div></a>
 						</li>
 					</ul>
+					<div>
+						<label>Inject css:</label>
+						<div class="slide ">
+							<input type="checkbox" value="None" id="slideThree" name="check" />
+							<label for="slideThree"></label>
+						</div>
+					</div>
 					<br><br>
 					<button id="no_send" class="regularButton">Disconnect</button>
 				</div>

@@ -77,6 +77,8 @@ function onPopUpOpen(){
 		console.log(index);
 		openBox(index,0);
 	});
+
+
 	$('body').css('height', 'inherit');
 
 
@@ -91,10 +93,6 @@ function onPopUpOpen(){
 			for (var i = serverWatchers.length - 1; i >= 0; i--) {
 				$('.ActiveServers ul').append('<li><a class="activeServer" href="#" data-miname="'+serverWatchers[i].name+'" data-miport="'+serverWatchers[i].port+'">' + serverWatchers[i].name + '</a></li>' );
 			}
-			//NEED SCROLL?
-			if (serverWatchers.length > 4) {
-				$('.ActiveServers .boxIn ul').addClass('custom_scrollbar');
-			}
 			//CLICK EN ACTIVO
 			$('.activeServer').click(function () {
 				if (!backgroundjs.connected()){
@@ -105,9 +103,7 @@ function onPopUpOpen(){
 				asociated = backgroundjs.updatetabs2refresh(miTab, miMport);
 				self.close();
 			});
-			openBox(0);
 		}else{
-			openBox(1);
 			$('.ActiveServers').hide();
 		}
 
@@ -119,10 +115,6 @@ function onPopUpOpen(){
 				var miOldWadtcher = serverWatchersStored[i]
 				console.log(miOldWadtcher);
 				$('.WatchersStored ul').append('<li><a class="WatcherStored" href="#" data-indexObj='+i+' data-miname="'+serverWatchersStored[i].name+'" >' + serverWatchersStored[i].name + '</a></li>' );
-			}
-			//NEED SCROLL?
-			if (serverWatchersStored.length > 4) {
-				$('.WatchersStored .boxIn ul').addClass('custom_scrollbar');
 			}
 			//CLICK EN ACTIVO
 			$('.WatcherStored').click(function () {
@@ -155,6 +147,22 @@ function onPopUpOpen(){
 		}else{
 			$('.WatchersStored').hide();
 		}
+
+
+		//NEED SCROLL?
+		if ($('.ScrollBox li').size() > 4) {
+			$('.ScrollBox').addClass('custom_scrollbar');
+		}
+		if ($('.ScrollBox li').size() > 0) {
+			openBox(0);
+		}else{
+			$('.watchers_ready').hide();
+			openBox(1);
+		}
+
+
+
+
 
 
 		// NUEVO SERVER___________________________________

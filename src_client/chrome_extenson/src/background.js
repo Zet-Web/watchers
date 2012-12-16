@@ -3,7 +3,7 @@
 
 var backgroundjsObj = new function backgroundjs(){
 	chrome.browserAction.setIcon({path:'icon/icon-19.png'});
-	console.log("watchers Background 0.3.30 | " + new Date());
+	console.log("watchers Background 0.3.32 | " + new Date());
 
 	var tabs2refresh = [];
 	var LastfireDate = new Date();
@@ -484,26 +484,27 @@ var backgroundjsObj = new function backgroundjs(){
 	}
 	function storeWatcher(wOptions){
 		if (wOptions === null)return;
-		var encontro = false;
+
+		//SI HAY UNO VIEJO CON EL MISMO NOMBRE LO BORRA
 		for (var i = savedWatchers.length - 1; i >= 0; i--) {
 			if (savedWatchers[i].name === wOptions.name){
-				encontro = true;
+				savedWatchers.splice(i, 1);
 			}
 		}
-		if (!encontro){
-			//TODO: Si encontro, borrar el + viejo
-			savedWatchers.push(wOptions);
-			$.jStorage.set('savedWatchers', savedWatchers);
-		}
+
+		savedWatchers.push(wOptions);
+		$.jStorage.set('savedWatchers', savedWatchers);
+
 	}
 	function serverWatchersStored(){
 		var miReturnArray = [];
+
 		//SI ESTA ACTIVO NO LO MUESTRA
 		//TODO: VALIDAR
-		for (var i = savedWatchers.length - 1; i >= 0; i--) {
+		for (var i = 0; i < savedWatchers.length; i++) {
 			var serverSaved = savedWatchers[i];
 			var encontro = false;
-			for (var j = serverWatchers.length - 1; j >= 0; j--) {
+			for (var j = 0; j < serverWatchers.length; j++) {
 				var serverActive = serverWatchers[j];
 				if (serverActive.name === serverSaved.name){
 					encontro = true;
@@ -511,6 +512,7 @@ var backgroundjsObj = new function backgroundjs(){
 			}
 			if (!encontro)miReturnArray.push(serverSaved);
 		}
+
 		return miReturnArray;
 	}
 
