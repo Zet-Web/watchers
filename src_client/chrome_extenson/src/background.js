@@ -26,6 +26,7 @@ var backgroundjsObj = new function backgroundjs(){
 
 	//Public updatetabs2refresh
 	this.getTabPort  = function(tab){ return getTabPort(tab);};
+	this.getTabbyId  = function(id){ return getTabbyId(id);};
 	this.getListanerbyPort  = function(port){ return getListanerbyPort(port);};
 	this.getTabsStatusAsoc = function(tab){ return Boolean (getTabPort(tab)>0);};
 	this.checkTabisConnected = function(tab, tabport){ return checkTabisConnected(tab);};
@@ -62,7 +63,7 @@ var backgroundjsObj = new function backgroundjs(){
 		var miTab = getTabbyId(tab.id);
 
 		if (!miTab.tab){
-			var miObjTab = {tab:tab, port:tabport};
+			var miObjTab = {tab:tab, port:tabport, inject:true};
 			tabs2refresh.push(miObjTab);
 			SendHitoTabs(miObjTab.tab.id, tabport);
 			console.log("\nAddTab: " + tab.id + " port: " + miObjTab.port);

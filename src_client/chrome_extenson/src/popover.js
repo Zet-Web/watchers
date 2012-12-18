@@ -1,4 +1,4 @@
-var miTab, bg, backgroundjs = null;
+var miTab, miTabObj,  bg, backgroundjs = null;
 var asociated, connected = false;
 var asociatedPort = -1;
 var serverWatchers = [];
@@ -48,6 +48,7 @@ chrome.tabs.getSelected(null, function(tab) {
 function conecto(tab){
 	asociated = backgroundjs.getTabsStatusAsoc(tab);
 	asociatedPort = backgroundjs.getTabPort(tab);
+	miTabObj = backgroundjs.getTabbyId(tab.id);
 	serverWatchers = backgroundjs.serverWatchers();
 	console.log(serverWatchers);
 	serverWatchersStored = backgroundjs.serverWatchersStored();
@@ -242,6 +243,12 @@ function onPopUpOpen(){
 		}
 		if (miName === null) miName = 'Port:' + asociatedPort;
 		$('.AsociationInfo .miName').html(miName);
+
+
+		//SETEA EL SLIDER
+		var inj = miTabObj.obj.inject
+		console.log('inj: ' + inj);
+		$('#slideThree').attr('checked', inj)
 
 
 		$('#no_send').click(function(){
