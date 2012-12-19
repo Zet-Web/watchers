@@ -3,7 +3,7 @@ var asociated, connected = false;
 var asociatedPort = -1;
 var serverWatchers = [];
 var serverWatchersStored = [];
-var miNodeData = null
+var miNodeData = null;
 
 
 //OnOpen (click)___________________________________________
@@ -18,7 +18,7 @@ chrome.tabs.getSelected(null, function(tab) {
 				alert ('This is not a valid tab');
 				self.close();
 				return;
-			};
+			}
 			if (!backgroundjs.connected()){
 				backgroundjs.startmegaServer(function (status) {
 					if (status === null){
@@ -112,18 +112,18 @@ function onPopUpOpen(){
 
 		// LISTA SERVERS STOREADOS___________________________________
 		if (serverWatchersStored.length >0){
-			for (var i = serverWatchersStored.length - 1; i >= 0; i--) {
-				var miOldWadtcher = serverWatchersStored[i]
+			for (var j = serverWatchersStored.length - 1; j >= 0; j--) {
+				var miOldWadtcher = serverWatchersStored[j];
 				console.log(miOldWadtcher);
-				$('.WatchersStored ul').append('<li><a class="WatcherStored" href="#" data-indexObj='+i+' data-miname="'+serverWatchersStored[i].name+'" >' + serverWatchersStored[i].name + '</a></li>' );
+				$('.WatchersStored ul').append('<li><a class="WatcherStored" href="#" data-indexObj='+j+' data-miname="'+serverWatchersStored[j].name+'" >' + serverWatchersStored[j].name + '</a></li>' );
 			}
 			//CLICK EN ACTIVO
 			$('.WatcherStored').click(function () {
 				if (!backgroundjs.connected()){
 					location.reload();
 				}
-				miindexObj = $(this).attr('data-indexObj')
-				miObj = serverWatchersStored[miindexObj]
+				miindexObj = $(this).attr('data-indexObj');
+				miObj = serverWatchersStored[miindexObj];
 				console.log(miObj);
 				backgroundjs.createWebRefresServer(miObj, function(status, message){
 					if (status){
@@ -199,8 +199,8 @@ function onPopUpOpen(){
 			}
 
 			if (only === "" && igno=== "" ){
-				only = ".php, .html, .htm, .js, .css"
-			};
+				only = ".php, .html, .htm, .js, .css";
+			}
 
 			var Poptions = {path2watch:path, name:name, ignore:igno, only:only};
 			console.log(Poptions);
@@ -235,10 +235,9 @@ function onPopUpOpen(){
 		/*INFO NAME*/
 		var miName = null;
 		console.log(serverWatchers.length);
-		for (var j = serverWatchers.length - 1; j >= 0; j--) {
-			serverWatchers[j].name
-			if (serverWatchers[j].port == asociatedPort){
-				miName = serverWatchers[j].name;
+		for (var k = serverWatchers.length - 1; k >= 0; k--) {
+			if (serverWatchers[k].port == asociatedPort){
+				miName = serverWatchers[k].name;
 			}
 		}
 		if (miName === null) miName = 'Port:' + asociatedPort;
@@ -246,16 +245,16 @@ function onPopUpOpen(){
 
 
 		//SETEA EL SLIDER
-		var inj = miTabObj.obj.inject
+		var inj = miTabObj.obj.inject;
 		console.log('inj: ' + inj);
-		$('#slideThree').attr('checked', inj)
+		$('#slideThree').attr('checked', inj);
 		$('#slideThree').change(function(){
 			if ($(this).is(':checked')){
 				backgroundjs.changeInject(asociatedPort, miTab);
 			}else{
 				backgroundjs.changeInject(-1, miTab);
 			}
-		})
+		});
 
 		$('#no_send').click(function(){
 			asociated = backgroundjs.removetabs2refresh(miTab,$('#port').val());

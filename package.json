@@ -1,6 +1,6 @@
 {
   "name": "watchers",
-  "version": "0.3.32",
+  "version": "0.3.34",
   "description": "Watch file changes and refresh site in browser",
   "main": "lib/main.js",
   "scripts": {

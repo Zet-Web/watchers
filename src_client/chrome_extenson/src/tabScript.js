@@ -41,7 +41,7 @@
 		//Hi______________________________
 		if (request.action =="Hi"){
 			if (tiroHi) return;
-			console.log("watchers tabScript 0.3.32, jquery version: " + $().jquery);
+			console.log("watchers tabScript 0.3.34, jquery version: " + $().jquery);
 			console.log($('.test').text());
 			tiroHi = true;
 		}else{
@@ -55,7 +55,7 @@
 			console.log("mifile:" + mifileChange + " | Path:" + request.file);
 
 			//Si tiene inject inyecta
-			if (request.dataChange.injectcss !== null){
+			if (request.dataChange.injectcss !== null && request.inject){
 				var miCss = request.dataChange.injectcss;
 				$('.injectcss').remove();
 				miCss = '<style class="injectcss" type="text/css" media="screen">'+miCss+'</style>';

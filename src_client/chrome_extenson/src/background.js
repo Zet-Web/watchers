@@ -3,7 +3,7 @@
 
 var backgroundjsObj = new function backgroundjs(){
 	chrome.browserAction.setIcon({path:'icon/icon-19.png'});
-	console.log("watchers Background 0.3.32 | " + new Date());
+	console.log("watchers Background 0.3.34 | " + new Date());
 
 	var tabs2refresh = [];
 	var LastfireDate = new Date();
@@ -180,11 +180,11 @@ var backgroundjsObj = new function backgroundjs(){
 		megaServer.publish('/'+optionsMegaServer.channel+"toServer",  {action:'createWatchers', options:$options, callBack:$callBack });
 	}
 	function changeInject(port, tab){
-		var miTab = getTabbyId(tab.id)
+		var miTab = getTabbyId(tab.id);
 		if (port == -1){
-			miTab.obj.inject = false
+			miTab.obj.inject = false;
 		}else{
-			miTab.obj.inject = true
+			miTab.obj.inject = true;
 			megaServer.publish('/'+optionsMegaServer.channel+"toServer",  {action:'changeInject', port:port});
 		}
 	}
@@ -238,7 +238,8 @@ var backgroundjsObj = new function backgroundjs(){
 		//2
 		console.log("sendRefresh to: " + tabId);
 		var miAction = "refreshFile"; /*"reload"*/ /*TODO: or other */
-		chrome.tabs.sendMessage(tabId, {action: miAction, file: FileChange, dataChange: DataChange}, function(response) {
+		var miinject = getTabbyId(tabId).obj.inject;
+		chrome.tabs.sendMessage(tabId, {action: miAction, file: FileChange, inject:miinject, dataChange: DataChange}, function(response) {
 			//console.log("----response: " + response.dom);
 		});
 		setTimeout(function() { sendRefreshLog(tabId);}, 500);
