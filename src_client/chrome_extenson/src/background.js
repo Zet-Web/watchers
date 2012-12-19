@@ -37,13 +37,17 @@ var backgroundjsObj = new function backgroundjs(){
 	this.serverWatchers  = function(){ return serverWatchers;};
 	this.serverWatchersStored  = function(){ return serverWatchersStored();};
 	this.connected  = function(){ return connected;};
+
+
 	this.createWebRefresServer  = function(options, $callBack){
 		return (createWebRefresServer(options, $callBack));
+	};
+	this.changeInject  = function(options, $callBack){
+		return (changeInject(options, $callBack));
 	};
 	this.startmegaServer  = function($callBack){
 		startmegaServer({callBack:$callBack});
 	};
-
 	this.updatetabs2refresh = function(tab, tabport){ return _updatetabs2refresh(tab, tabport);};
 
 
@@ -63,7 +67,7 @@ var backgroundjsObj = new function backgroundjs(){
 		var miTab = getTabbyId(tab.id);
 
 		if (!miTab.tab){
-			var miObjTab = {tab:tab, port:tabport, inject:true};
+			var miObjTab = {tab:tab, port:tabport, inject:false};
 			tabs2refresh.push(miObjTab);
 			SendHitoTabs(miObjTab.tab.id, tabport);
 			console.log("\nAddTab: " + tab.id + " port: " + miObjTab.port);
@@ -174,6 +178,15 @@ var backgroundjsObj = new function backgroundjs(){
 			CreateServer_callBack = callBack;
 		}
 		megaServer.publish('/'+optionsMegaServer.channel+"toServer",  {action:'createWatchers', options:$options, callBack:$callBack });
+	}
+	function changeInject(port, tab){
+		var miTab = getTabbyId(tab.id)
+		if (port == -1){
+			miTab.obj.inject = false
+		}else{
+			miTab.obj.inject = true
+			megaServer.publish('/'+optionsMegaServer.channel+"toServer",  {action:'changeInject', port:port});
+		}
 	}
 
 

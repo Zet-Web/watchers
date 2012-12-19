@@ -249,7 +249,13 @@ function onPopUpOpen(){
 		var inj = miTabObj.obj.inject
 		console.log('inj: ' + inj);
 		$('#slideThree').attr('checked', inj)
-
+		$('#slideThree').change(function(){
+			if ($(this).is(':checked')){
+				backgroundjs.changeInject(asociatedPort, miTab);
+			}else{
+				backgroundjs.changeInject(-1, miTab);
+			}
+		})
 
 		$('#no_send').click(function(){
 			asociated = backgroundjs.removetabs2refresh(miTab,$('#port').val());
