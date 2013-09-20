@@ -3,7 +3,7 @@
 
 var backgroundjsObj = new function backgroundjs(){
 	chrome.browserAction.setIcon({path:'icon/icon-19.png'});
-	console.log("watchers Background 0.3.34 | " + new Date());
+	console.log("watchers Background 0.3.35 | " + new Date());
 
 	var tabs2refresh = [];
 	var LastfireDate = new Date();

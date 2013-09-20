@@ -6,5 +6,5 @@ var _       = require('underscore');
 var portscanner = require('portscanner');
 var argv    = require('optimist').argv;
 var lib     = path.join(path.dirname(fs.realpathSync(__filename)), '../lib');
-// require(lib + '/main.js');
-require(lib + '/main').run();
+require(lib + '/main.js');
+// require(lib + '/main').run();

@@ -41,7 +41,7 @@
 		//Hi______________________________
 		if (request.action =="Hi"){
 			if (tiroHi) return;
-			console.log("watchers tabScript 0.3.34, jquery version: " + $().jquery);
+			console.log("watchers tabScript 0.3.35, jquery version: " + $().jquery);
 			console.log($('.test').text());
 			tiroHi = true;
 		}else{
